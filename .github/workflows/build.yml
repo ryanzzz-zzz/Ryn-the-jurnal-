@@ -13,6 +13,12 @@ jobs:
       - name: Unzip project
         run: unzip -o ryn-the-journal.zip
 
+      - name: Terapkan tema baru (jika ada)
+        run: |
+          if [ -f theme-override.css ]; then
+            cp theme-override.css ryn-the-journal/www/style.css
+          fi
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
